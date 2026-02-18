@@ -1,5 +1,5 @@
 const pool = require("../config/db");
-const { calculateReadinessScore, detectRiskAndResilience } = require("../utils/ai_scoring");
+const { analyzeBusinessMetrics } = require("../utils/ai_scoring");
 
 exports.submitBusinessMetrics = async (req, res) => {
     try {
@@ -48,23 +48,19 @@ exports.submitBusinessMetrics = async (req, res) => {
             );
         }
 
-        // Run AI Scoring
-        const readiness = calculateReadinessScore(req.body);
-        const risk = detectRiskAndResilience(req.body);
+        // Run AI Analysis (Real Groq Integration)
+        const aiAnalysis = await analyzeBusinessMetrics(req.body);
 
         // Update profile with AI results
         await pool.query(
             "UPDATE sme_profiles SET readiness_score = $1, risk_level = $2, resilience_summary = $3 WHERE id = $4",
-            [readiness.score, risk.riskLevel, risk.resilienceSummary, smeId]
+            [aiAnalysis.readiness.score, aiAnalysis.risk.level, aiAnalysis.risk.resilienceSummary, smeId]
         );
 
         res.json({
-            message: "Metrics submitted and AI scoring completed",
+            message: "Metrics submitted and AI analysis completed",
             metrics: metrics.rows[0],
-            ai_results: {
-                readiness,
-                risk
-            }
+            ai_results: aiAnalysis
         });
 
     } catch (error) {

@@ -46,6 +46,7 @@ While the AI component is currently simulated to facilitate immediate testing, t
 ---
 
 ## 🔗 Quick Links
+- **AI Implementation Logs**: [backend/AI_IMPLEMENTATION.md](./backend/AI_IMPLEMENTATION.md) — **New! Details on Groq/Llama structure.**
 - **Technical Backend Docs**: [backend/README.md](./backend/README.md)
 - **Database Schema**: [backend/database.sql](./backend/database.sql)
 - **API Entry Point**: [backend/index.js](./backend/index.js)
