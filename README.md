@@ -10,6 +10,7 @@ FedaVest is a mobile-first, trust and accountability platform that helps food-sy
 - **Milestone-Based Accountability**: Verified evidence-based funding disbursement.
 
 ## Documentation
+- [Implementation Summary](./PROJECT_IMPLEMENTATION.md) — **Read this first for an overview of work done.**
 - [Backend Documentation](./backend/README.md)
 - [Database Schema](./backend/database.sql)
 
