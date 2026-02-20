@@ -1,3 +1,6 @@
+// Connecting the posgresql database in this code
+
+
 const { Pool } = require("pg");
 
 const pool = new Pool({

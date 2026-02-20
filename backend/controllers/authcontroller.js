@@ -2,12 +2,12 @@ const pool = require("../config/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// REGISTER
+// registration of user
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
-    // Validate role
+    // Validatation of two roles here
     const validRoles = ["food_sme", "investor"];
     const userRole = validRoles.includes(role) ? role : "user";
 

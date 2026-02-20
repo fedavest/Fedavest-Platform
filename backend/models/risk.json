@@ -1,0 +1,31 @@
+{
+    "features": [
+        "profit_margin",
+        "funding_ratio",
+        "expense_ratio",
+        "supplier_fragility_score",
+        "largest_supplier_percentage",
+        "data_inconsistency_count",
+        "sme_type_processor",
+        "sme_type_retailer",
+        "sme_type_trader"
+    ],
+    "classes": {
+        "0": "Low",
+        "1": "Medium",
+        "2": "High"
+    },
+    "feature_importance": {
+        "data_inconsistency_count": 0.23877385219424607,
+        "largest_supplier_percentage": 0.233524294302553,
+        "expense_ratio": 0.18425671955569878,
+        "profit_margin": 0.18037030169515045,
+        "supplier_fragility_score": 0.08075124266139753,
+        "funding_ratio": 0.0742920320306604,
+        "sme_type_processor": 0.004031375284714275,
+        "sme_type_trader": 0.0022810274622996033,
+        "sme_type_retailer": 0.0017191548132799354
+    },
+    "algorithm": "RandomForestClassifier",
+    "date_trained": "2026-02-20 12:41:18.614039"
+}
