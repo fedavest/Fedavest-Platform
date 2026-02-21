@@ -3,10 +3,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authroutes");
-const userRoutes = require("./routes/userroutes");
-const smeRoutes = require("./routes/smeroutes");
-const investorRoutes = require("./routes/investorroutes");
-const adminRoutes = require("./routes/adminroutes");
 const testRoutes = require("./routes/testroutes");
 const readinessroutes = require("./routes/readinessroute");
 const riskroutes = require("./routes/riskroute");
@@ -24,10 +20,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/sme", smeRoutes);
-app.use("/api/v1/investors", investorRoutes);
-app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/ai", readinessroutes);
 app.use("/api/v1/ai", riskroutes);
