@@ -3,9 +3,9 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authroutes");
-const testRoutes = require("./routes/testroutes");
 const readinessroutes = require("./routes/readinessroute");
 const riskroutes = require("./routes/riskroute");
+const profileRoutes = require("./routes/profileroutes");
 const app = express();
 
 app.use(cors());
@@ -20,9 +20,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/ai", readinessroutes);
 app.use("/api/v1/ai", riskroutes);
+app.use("/api/profile", profileRoutes);
 
 const port = process.env.PORT || 2000;
 
