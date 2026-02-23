@@ -6,6 +6,8 @@ const authRoutes = require("./routes/authroutes");
 const readinessroutes = require("./routes/readinessroute");
 const riskroutes = require("./routes/riskroute");
 const profileRoutes = require("./routes/profileroutes");
+const investorRoutes = require("./routes/investorroutes");
+
 const app = express();
 
 app.use(cors());
@@ -23,6 +25,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/ai", readinessroutes);
 app.use("/api/v1/ai", riskroutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/investor", investorRoutes);
 
 const port = process.env.PORT || 2000;
 
