@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:flutter/material.dart';
 class FundingProgressCard extends StatelessWidget {
   const FundingProgressCard({super.key});
@@ -18,15 +19,7 @@ class FundingProgressCard extends StatelessWidget {
                 "Funding Progress",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text("View Details"),
-              )
+              DashBoardMiniContainer()
             ],
           ),
           const SizedBox(height: 12),
@@ -35,7 +28,7 @@ class FundingProgressCard extends StatelessWidget {
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppColors.primaryColor),
+                color: AppColors.dashBoardYellow),
           ),
           const SizedBox(height: 6),
           ClipRRect(

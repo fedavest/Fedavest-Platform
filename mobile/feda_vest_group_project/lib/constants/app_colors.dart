@@ -6,4 +6,5 @@ class AppColors {
   static const Color foodSmeFontColor = Color(0xFF144718); 
  static const Color setProfileContainerColor = Color(0xFFF8F8F8);
  static const Color appTextColor = Color(0xFF101010) ;
+ static const Color dashBoardYellow = Color(0xFFCCCC00) ; 
 }

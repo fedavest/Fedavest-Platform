@@ -15,7 +15,7 @@ class SmeDashboardScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const AuthHeader(
+             AuthHeader(
               isDashboard: true,
              isSignupScreen: true,
               subheading: "GreenHarvest Foods",

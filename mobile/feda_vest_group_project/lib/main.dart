@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/global_widgets/bottom_nav.dart';
-import 'package:feda_vest_group_project/pages/bottomnav_pages/profile_screen.dart';
+import 'package:feda_vest_group_project/pages/bottomnav_pages/dashoard/verification.dart';
+import 'package:feda_vest_group_project/widgets/verifcation/verificationcenter.dart';
 import 'package:feda_vest_group_project/pages/auth/set_profile_screen.dart';
 import 'package:feda_vest_group_project/pages/auth/signin.dart';
 import 'package:feda_vest_group_project/pages/auth/signup.dart';
@@ -23,13 +24,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: '/onBoard1',
+    //  initialRoute: '/onBoard1',
+       initialRoute: '/verification',
       routes: {
         '/signUp':(context) => SignupScreen(),
         '/signIn':(context) => SignInScreen(),
         '/profileSetUp': (context)=> SetProfileScreen(),
         '/bottomNav':(context)=> BottomNav(),
-        '/onBoard1':(context)=> OnboardingScreen()
+        '/onBoard1':(context)=> OnboardingScreen(),
+        '/verificationCenter':(context)=> VerificationCenterScreen(),
+        '/verification':(context)=> VerificationFormScreen()
        
       }
     );

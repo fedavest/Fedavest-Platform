@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/dash_button_text.dart';
 import 'package:flutter/material.dart';
 class InvestmentReadinessCard extends StatelessWidget {
   const InvestmentReadinessCard({super.key});
@@ -30,7 +31,7 @@ class InvestmentReadinessCard extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.primaryColor),
+                      color: AppColors.dashBoardYellow),
                 ),
                 TextSpan(
                   text: "/100",
@@ -54,15 +55,7 @@ class InvestmentReadinessCard extends StatelessWidget {
           const Text("Update your business Plan",
               style: TextStyle(color: Colors.grey)),
           const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Text("Update Now"),
-          )
+          DashButtonText()
         ],
       ),
     );

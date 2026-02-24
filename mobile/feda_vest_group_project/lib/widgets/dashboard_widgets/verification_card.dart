@@ -1,5 +1,8 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/global_widgets/app_text.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/dash_button_text.dart';
 import 'package:flutter/material.dart';
 class VerificationCard extends StatelessWidget {
   const VerificationCard({super.key});
@@ -11,9 +14,9 @@ class VerificationCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title),
-          const Icon(Icons.check_circle,
-       
-              color: AppColors.primaryColor, size: 18),
+          const Icon(Icons.check_circle_outline,
+       color: AppColors.primaryColor,
+             size: 18),
         ],
       ),
     );
@@ -25,30 +28,29 @@ class VerificationCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Verification Status",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               AppText(
+               text:  "Verification Status",
+               textSize: 16,
+                fontWeight: FontWeight.bold,
+                         ),
+                         DashBoardMiniContainer(text: "View Center",)
+             ],
+           ),
           const SizedBox(height: 12),
-          verificationRow("National ID"),
+          verificationRow("National ID",),
           verificationRow("CAC Registration"),
           verificationRow("Location Verification"),
           const SizedBox(height: 16),
-          Container(
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Complete Verification"),
-                SizedBox(width: 6),
-                Icon(Icons.arrow_forward, size: 18)
-              ],
-            ),
+          GestureDetector(
+            onTap: (){
+                Navigator.pushReplacementNamed(context, '/verification');
+            },
+            child: DashButtonText(
+              hasIcon: true,
+              text: "Complete Verification",)
           )
         ],
       ),
