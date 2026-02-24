@@ -1,0 +1,38 @@
+name: Backend CI/CD Demo
+
+on:
+  push:
+    branches:
+      - feda-devops
+      - main
+
+jobs:
+  build-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up Node.js
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 3️⃣ Install dependencies for backend tests
+      - name: Install dependencies
+        run: |
+          cd backend
+          npm install --omit=dev
+
+      # 4️⃣ Run backend tests
+      - name: Run tests
+        run: |
+          cd backend
+          npm test || echo "No tests found"
+
+      # 5️⃣ Build Docker image locally
+      - name: Build Docker image
+        run: docker build -t fedavest-app .

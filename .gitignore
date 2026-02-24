@@ -78,7 +78,19 @@ node_modules
 # Next.js build output
 .next
 out
+# Node modules
+node_modules/
+backend/node_modules/
 
+# Environment files
+.env
+.env.docker
+
+# SQL dumps or DB files
+backend/fedavest_dump.sql
+
+# Logs
+*.log
 # Nuxt.js build / generate output
 .nuxt
 dist
