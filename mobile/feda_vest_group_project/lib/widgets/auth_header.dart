@@ -16,16 +16,19 @@ class AuthHeader extends StatefulWidget {
     this.avatarText,
     this.showIcon = false,
     this.isprofile = false,
+    this.isReadiness = false, this.onTap
   });
   final String? heading;
   final String? subheading;
   final Color? color;
   final Color? textcolor;
+  final VoidCallback? onTap;
   final String? avatarText;
   final bool isSignupScreen;
   final bool isSigninScreen;
     final bool isDashboard;
   final bool showIcon;
+    final bool isReadiness;
   final bool isprofile;
 
   @override
@@ -60,7 +63,9 @@ class _AuthHeaderState extends State<AuthHeader> {
             child: widget.isSignupScreen
                 ? SizedBox.shrink()
                 : widget.showIcon
-                ? Icon(Icons.arrow_back, color: Colors.white)
+                ? GestureDetector(
+                  onTap:widget.onTap ?? () => Navigator.pop(context), 
+                  child: widget.isReadiness? Icon(Icons.arrow_back_ios, color: Colors.white):Icon(Icons.arrow_back, color: Colors.white))
                 : SizedBox.shrink(),
           ),
           SizedBox(height: 20),
@@ -92,7 +97,9 @@ class _AuthHeaderState extends State<AuthHeader> {
                 )
 
               : 
+
               Text(
+                
                   widget.heading ?? "Create Account",
 
                   style: GoogleFonts.poppins(
@@ -129,18 +136,21 @@ class _AuthHeaderState extends State<AuthHeader> {
                   ),
               )
               : widget.isSigninScreen
-              ? Center(
-                  child: Text(
-                    widget.subheading ?? "Join the food security revolution",
-                    style: GoogleFonts.inter(
-                      color: Colors.white,
-                      fontWeight: widget.isSignupScreen
-                          ? FontWeight.bold
-                          : FontWeight.w400,
-                      fontSize: widget.isSignupScreen ? 24 : 16,
-                    ),
-                  ),
-                )
+              ? widget.isSigninScreen
+    ? Center(
+        child:widget.isReadiness ?
+        SizedBox.shrink():
+         Text(
+          
+          widget.subheading ?? "Join the food security revolution",
+          style: GoogleFonts.inter(
+            color: Colors.white,
+            fontWeight: widget.isSignupScreen ? FontWeight.bold : FontWeight.w400,
+            fontSize: widget.isSignupScreen ? 24 : 16,
+          ),
+        ),
+      )
+    : SizedBox.shrink()
                 
               : widget.isDashboard ?
               Row(
@@ -156,7 +166,11 @@ class _AuthHeaderState extends State<AuthHeader> {
                         fontSize: widget.isSignupScreen ? 24 : 16,
                       ),
                     ),
-                    Icon(Icons.notifications_outlined, color: Colors.white,)
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pushReplacementNamed(context, '/notification');
+                      },
+                      child: Icon(Icons.notifications_outlined, color: Colors.white,))
                 ],
               ):               Text(
                   widget.subheading ?? "Join the food security revolution",

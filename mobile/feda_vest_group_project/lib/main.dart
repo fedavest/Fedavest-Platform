@@ -1,5 +1,7 @@
 import 'package:feda_vest_group_project/global_widgets/bottom_nav.dart';
 import 'package:feda_vest_group_project/pages/bottomnav_pages/dashoard/verification.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/notification.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/sme_readiness.dart';
 import 'package:feda_vest_group_project/widgets/verifcation/verificationcenter.dart';
 import 'package:feda_vest_group_project/pages/auth/set_profile_screen.dart';
 import 'package:feda_vest_group_project/pages/auth/signin.dart';
@@ -24,8 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-    //  initialRoute: '/onBoard1',
-       initialRoute: '/verification',
+     initialRoute: '/onBoard1',
+     
       routes: {
         '/signUp':(context) => SignupScreen(),
         '/signIn':(context) => SignInScreen(),
@@ -33,8 +35,9 @@ class MyApp extends StatelessWidget {
         '/bottomNav':(context)=> BottomNav(),
         '/onBoard1':(context)=> OnboardingScreen(),
         '/verificationCenter':(context)=> VerificationCenterScreen(),
-        '/verification':(context)=> VerificationFormScreen()
-       
+        '/verification':(context)=> VerificationFormScreen(),
+       '/Readiness':(context)=> InvestmentReadinessScreen(),
+       '/notification':(context)=> NotificationScreen()
       }
     );
   }

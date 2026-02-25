@@ -12,4 +12,15 @@ static const smeToolsIcon4 ="assets/auth_assets/smeToolsIcon4.jpg";
 static const onBoard1 = "assets/auth_assets/onboard1.jpg";
 static const onBoard2 = "assets/auth_assets/onboard2.jpg";
 static const onBoard3 = "assets/auth_assets/onboard3.jpg";
+static const uploadImage = "assets/auth_assets/uploadImage.jpg";
+static const updateImage = "assets/auth_assets/updateImage.jpg";
+static const riskImage = "assets/auth_assets/riskImage.jpg";
+static const fundingImage = "assets/auth_assets/fundingImage.jpg";
+static const centerUpload = "assets/auth_assets/centerUpload.jpg";
+static const teams = "assets/auth_assets/teams.jpg";
+static const dollar = "assets/auth_assets/dollar.jpg";
+static const bookmark = "assets/auth_assets/bookmark.jpg";
+static const error = "assets/auth_assets/error.jpg";
+static const arrow = "assets/auth_assets/arrow.jpg";
+static const check = "assets/auth_assets/check.jpg";
 }

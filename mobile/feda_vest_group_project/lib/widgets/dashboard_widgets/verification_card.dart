@@ -4,6 +4,7 @@ import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_cont
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dash_button_text.dart';
 import 'package:flutter/material.dart';
+
 class VerificationCard extends StatelessWidget {
   const VerificationCard({super.key});
 
@@ -14,9 +15,11 @@ class VerificationCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title),
-          const Icon(Icons.check_circle_outline,
-       color: AppColors.primaryColor,
-             size: 18),
+          const Icon(
+            Icons.check_circle_outline,
+            color: AppColors.primaryColor,
+            size: 18,
+          ),
         ],
       ),
     );
@@ -28,30 +31,32 @@ class VerificationCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             children: [
-               AppText(
-               text:  "Verification Status",
-               textSize: 16,
+            children: [
+              AppText(
+                text: "Verification Status",
+                textSize: 16,
                 fontWeight: FontWeight.bold,
-                         ),
-                         DashBoardMiniContainer(text: "View Center",)
-             ],
-           ),
+              ),
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushReplacementNamed(context, '/verificationCenter');
+                },
+                child: DashBoardMiniContainer(text: "View Center")),
+            ],
+          ),
           const SizedBox(height: 12),
-          verificationRow("National ID",),
+          verificationRow("National ID"),
           verificationRow("CAC Registration"),
           verificationRow("Location Verification"),
           const SizedBox(height: 16),
           GestureDetector(
-            onTap: (){
-                Navigator.pushReplacementNamed(context, '/verification');
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/verification');
             },
-            child: DashButtonText(
-              hasIcon: true,
-              text: "Complete Verification",)
-          )
+            child: DashButtonText(hasIcon: true, text: "Complete Verification"),
+          ),
         ],
       ),
     );

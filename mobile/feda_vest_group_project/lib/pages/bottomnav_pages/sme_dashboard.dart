@@ -29,9 +29,9 @@ class SmeDashboardScreen extends StatelessWidget {
               child: Column(
                 children: const [
                   VerificationCard(),
-                  SizedBox(height: 16),
+                  SizedBox(height: 10),
                   InvestmentReadinessCard(),
-                  SizedBox(height: 16),
+                  SizedBox(height: 20),
                   FundingProgressCard(),
                   SizedBox(height: 16),
                   QuickActionsSection(),

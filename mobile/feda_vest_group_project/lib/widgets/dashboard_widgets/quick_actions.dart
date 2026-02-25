@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 class QuickActionButton extends StatelessWidget {
-  final IconData icon;
+  final Image image;
   final String title;
 
   const QuickActionButton({
     super.key,
-    required this.icon,
+    required this.image,
     required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.all(16),
+      margin: EdgeInsets.symmetric(horizontal: 13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -25,8 +26,7 @@ class QuickActionButton extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, color: Colors.green),
-          const SizedBox(height: 8),
+          image,
           Text(title),
         ],
       ),

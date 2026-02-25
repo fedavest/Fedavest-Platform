@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/quick_actions.dart';
 import 'package:flutter/material.dart';
 class QuickActionsSection extends StatelessWidget {
@@ -17,13 +18,13 @@ class QuickActionsSection extends StatelessWidget {
           children: [
             Expanded(
               child: QuickActionButton(
-                  icon: Icons.upload_file,
+                  image: Image(image: AssetImage(AuthImages.uploadImage)),
                   title: "Upload Docs"),
             ),
             SizedBox(width: 12),
             Expanded(
               child: QuickActionButton(
-                  icon: Icons.update,
+                image: Image(image: AssetImage(AuthImages.updateImage)),
                   title: "Update Data"),
             ),
           ],
@@ -33,13 +34,13 @@ class QuickActionsSection extends StatelessWidget {
           children: [
             Expanded(
               child: QuickActionButton(
-                  icon: Icons.show_chart,
+                 image: Image(image: AssetImage(AuthImages.fundingImage)),
                   title: "Funding Goal"),
             ),
             SizedBox(width: 12),
             Expanded(
               child: QuickActionButton(
-                  icon: Icons.warning_amber_outlined,
+image: Image(image: AssetImage(AuthImages.riskImage)),
                   title: "Risk Insights"),
             ),
           ],

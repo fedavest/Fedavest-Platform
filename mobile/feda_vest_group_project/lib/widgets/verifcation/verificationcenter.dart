@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +14,7 @@ class VerificationCenterScreen extends StatelessWidget {
       body: Column(
         children: [
 
-          /// TOP GREEN HEADER
+         
           Container(
             padding: const EdgeInsets.only(
                 top: 50, left: 20, right: 20, bottom: 30),
@@ -26,11 +27,16 @@ class VerificationCenterScreen extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children:  [
                 Row(
                   children: [
-                    Icon(Icons.arrow_back_ios,
-                        color: Colors.white, size: 18),
+                    GestureDetector(
+                      onTap: (){
+                         Navigator.pushReplacementNamed(context, '/bottomNav');
+                      },
+                      child: Icon(Icons.arrow_back_ios,
+                          color: Colors.white, size: 18),
+                    ),
                     SizedBox(width: 8),
                     Text(
                       "Verification Center",
@@ -50,7 +56,7 @@ class VerificationCenterScreen extends StatelessWidget {
             ),
           ),
 
-          /// BODY
+        
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16),
@@ -58,7 +64,7 @@ class VerificationCenterScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  /// Overall Progress
+                
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -110,16 +116,27 @@ class VerificationCenterScreen extends StatelessWidget {
                     runSpacing: 8,
                     children: const [
                       BadgeWidget(
+                        containerColor: Color(0xFFE8EFE9),
+                        icon: Icon(Icons.shield_outlined, color: AppColors.primaryColor,),
                         text: "Identity Verified",
-                        color: Colors.green,
+                        color: AppColors.primaryColor,
                       ),
+                      SizedBox(width: 8),
                       BadgeWidget(
+                        containerColor: Color(0xffE9EBF9),
+                        icon: Icon(Icons.shield_outlined, color: Color(0xff1E3DA4),),
                         text: "CAC Registered",
-                        color: Colors.blue,
+                        color:Color(0xff1E3DA4),
                       ),
-                      BadgeWidget(
-                        text: "Photo ID",
-                        color: Colors.purple,
+                    
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: BadgeWidget(
+                          containerColor: Color(0xffE6D9F8),
+                          icon: Icon(Icons.camera_alt_outlined, color: Color(0xff5E07D0),),
+                          text: "Photo ID",
+                          color: Color(0xff5E07D0),
+                        ),
                       ),
                     ],
                   ),
@@ -225,33 +242,53 @@ class VerificationItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(
-          color: isVerified
-              ? const Color(0xFF0F3D2E)
-              : const Color(0xFFD4AF37),
+        border: isVerified ? Border (
+          left: BorderSide(
+            color: AppColors.primaryColor,
+                 
+          width: 4,
+          )
+          )   : Border.all(
+              color  :  Color(0xFFD4AF37),
           width: 1.2,
+          )      
+          
         ),
-      ),
+      
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
           /// Status Icon
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isVerified
-                  ? const Color(0xFFE6F4EA)
-                  : const Color(0xFFFFF4D6),
-            ),
-            child: Icon(
-              isVerified ? Icons.check : Icons.error_outline,
-              color: isVerified
-                  ? const Color(0xFF0F3D2E)
-                  : const Color(0xFFD4AF37),
-            ),
+       Container(
+  padding: const EdgeInsets.all(8),
+  decoration: BoxDecoration(
+    shape: BoxShape.circle,
+    color: isVerified
+        ? const Color(0xFFE8EFE9)
+        : const Color(0xFFFEF1DA),
+  ),
+  child: isVerified
+      ? Container(
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColors.primaryColor,
           ),
+          child: const Icon(
+            Icons.check_outlined,
+            color: Colors.white,
+            size: 18,
+          ),
+        )
+      : const Icon(
+          Icons.error_outline,
+          color: Color(0xFFD4AF37),
+          size: 22,
+        ),
+),
+
+const SizedBox(width: 12),
 
           const SizedBox(width: 12),
 
@@ -297,12 +334,17 @@ class VerificationItem extends StatelessWidget {
                 ),
                 if (!isVerified) ...[
                   const SizedBox(height: 8),
-                  const Text(
-                    "Upload Evidence",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  Row(
+                    children: [
+                      Image(image: AssetImage(AuthImages.centerUpload)),
+                      const Text(
+                        "Upload Evidence",
+                        style: TextStyle(
+                          color: Color(0xff1E3DA4),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   )
                 ]
               ],
@@ -320,12 +362,13 @@ class VerificationItem extends StatelessWidget {
 
 class BadgeWidget extends StatelessWidget {
   final String text;
-  final Color color;
+  final Color color, containerColor;
+  final Icon icon;
 
   const BadgeWidget({
     super.key,
     required this.text,
-    required this.color,
+    required this.color, required this.icon, required this.containerColor,
   });
 
   @override
@@ -334,12 +377,20 @@ class BadgeWidget extends StatelessWidget {
       padding:
           const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: containerColor,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Text(
-        text,
-        style: TextStyle(color: color, fontSize: 12),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+       // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icon,
+          SizedBox(width: 4,),
+          Text(
+            text,
+            style: TextStyle(color: color, fontSize: 12),
+          ),
+        ],
       ),
     );
   }
