@@ -71,6 +71,13 @@ To ensure stability and production safety, the following workflow was used:
 
 - Production deployment is triggered from main branch
 
+Branch roles
+
+- main → production-ready code
+- feda-devops → DevOps integration branch (CI/CD, Docker, deployment)
+- feda-backend → backend development branch
+- feda-dev (mobile) → mobile application development branch
+
 This ensures:
 
 - No unstable code reaches production
@@ -78,6 +85,7 @@ This ensures:
 - Controlled testing environment
 
 - Clear separation of DevOps validation layer
+
 
 ## Docker Implementation
 
@@ -176,6 +184,8 @@ Render provides:
 Development Flow:
 feda-backend → feda-devops → main
 
+Mobile development continues independently in feda-dev.
+
 - Backend feature ready
 - Pulled into DevOps branch
 - Docker tested locally
@@ -222,6 +232,8 @@ Dockerized: Yes
 Cloud Deployment: Active
 
 Production Ready: Yes
+
+Mobile Integration: Supported
 
 
 
