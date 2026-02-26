@@ -8,10 +8,11 @@ class AppButton extends StatefulWidget {
     this.icon,
     this.showIcon = false,
     this.onTap,
-    this.height = 50,
+    this.height = 50, this.child,
   });
 
   final String? text;
+    final Widget? child;
   final IconData? icon;
   final bool showIcon;
   final VoidCallback? onTap;
@@ -30,13 +31,15 @@ class _AppButtonState extends State<AppButton> {
         height: widget.height,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+       color: widget.onTap != null
+        ? AppColors.primaryColor
+        : Colors.grey.shade400,
           borderRadius: BorderRadius.circular(12),
         ),
         alignment: Alignment.center,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
+          child: widget.child??Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(

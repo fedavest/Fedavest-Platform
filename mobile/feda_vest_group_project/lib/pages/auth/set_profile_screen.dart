@@ -66,7 +66,7 @@ class _SetProfileScreenState extends State<SetProfileScreen> {
                     height: 50,
                     child: AppButton(
                       showIcon: true,
-                      text: "Get Started",
+                      text: "rted",
                       onTap: () {
                         Navigator.pushNamed(context, '/signIn');
                       },

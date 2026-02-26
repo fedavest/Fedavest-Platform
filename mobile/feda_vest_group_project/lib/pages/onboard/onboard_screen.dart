@@ -1,6 +1,7 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:feda_vest_group_project/global_widgets/app_button.dart';
+import 'package:feda_vest_group_project/routes/route_name.dart';
 import 'package:feda_vest_group_project/widgets/index.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-  Navigator.pushReplacementNamed(context, '/signUp');
+  Navigator.pushReplacementNamed(context, RouteName.signUp);
 
     }
   }
@@ -99,11 +100,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       right: size.width * 0.05,
                       child: TextButton(
                         onPressed: () {},
-                        child: const Text(
-                          "Skip",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                        child: GestureDetector(
+                           onTap: (){
+                          Navigator.pushReplacementNamed(context, RouteName.signUp);
+                        },
+                          child: const Text(
+                            "Skip",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
