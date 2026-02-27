@@ -244,7 +244,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: AppButton(
                           onTap: isValidated 
                               ? () {
-                                  authCubit.register(role: selectedRole);
+                                Navigator.pushNamed(context, RouteName.bottomNav);
+                                 // authCubit.register(role: selectedRole);
                                 }
                               : null,
                           child:Text("Sign Up", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),

@@ -143,9 +143,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       text: "Log In",
                       onTap: isValidated
                           ? () {
-                              final authCubit = context.read<AuthCubit>();
-                              final email = authCubit.emailcontroller.text
-                                  .trim();
+                            Navigator.pushNamed(context, RouteName.bottomNav);
+                              // final authCubit = context.read<AuthCubit>();
+                              // final email = authCubit.emailcontroller.text
+                              //     .trim();
                             }
                           : null,
                     ),

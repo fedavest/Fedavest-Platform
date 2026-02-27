@@ -2,6 +2,7 @@ import 'package:feda_vest_group_project/pages/bottomnav_pages/sme_dashboard.dart
 import 'package:feda_vest_group_project/pages/bottomnav_pages/explore.dart';
 import 'package:feda_vest_group_project/pages/bottomnav_pages/profile_screen.dart';
 import 'package:feda_vest_group_project/pages/bottomnav_pages/updates.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/notification.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -16,8 +17,9 @@ class _BottomNavState extends State<BottomNav> {
 
   final screens = const[
     SmeDashboardScreen(),
-    ExploreScreen(),
-    UpdatesScreen(),
+    ExploreSmesScreen(),
+    NotificationScreen(),
+    //UpdatesScreen(),
     ProfileScreen(),
   ];
     void changeTab(int index) {
