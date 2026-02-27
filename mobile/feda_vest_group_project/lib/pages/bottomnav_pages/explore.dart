@@ -14,7 +14,7 @@ class ExploreSmesScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: const BackButton(color: Colors.black),
+       // leading: const BackButton(color: Colors.black),
         title: const Text(
           "Explore SMEs",
           style: TextStyle(
@@ -29,7 +29,7 @@ class ExploreSmesScreen extends StatelessWidget {
           children: const [
             SizedBox(height: 12),
             ReusableSearchField(
-              image: Image(image: AssetImage(AuthImages.searchSuffixIcon)),
+              image: Image(image: AssetImage(AuthImages.arrow)),
             ),
             SizedBox(height: 14),
 
