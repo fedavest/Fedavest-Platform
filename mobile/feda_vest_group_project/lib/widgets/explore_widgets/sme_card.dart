@@ -67,13 +67,25 @@ class SMECardContainer extends StatelessWidget {
           const SizedBox(height: 12),
 
           /// Stats
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SMEStatItem(title: "Readiness", value: readiness),
-              SMEStatItem(title: "Risk", value: risk),
-              SMEStatItem(title: "Goal", value: goal),
-            ],
+          Container(
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: Color(0xffF4F4F4),
+              borderRadius: BorderRadius.circular(16),
+              
+            ),
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SMEStatItem(title: "Readiness", value: readiness),
+                  VerticalDivider(thickness: 2,color: Colors.black,),
+                  SMEStatItem(title: "Risk", value: risk),
+                   VerticalDivider(thickness: 2,color: Colors.grey,),
+                  SMEStatItem(title: "Goal", value: goal, color: AppColors.dashBoardYellow,),
+                ],
+              ),
+            ),
           ),
 
           const SizedBox(height: 10),

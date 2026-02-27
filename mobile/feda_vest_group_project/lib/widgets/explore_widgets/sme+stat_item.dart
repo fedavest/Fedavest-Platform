@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class SMEStatItem extends StatelessWidget {
   final String title;
   final String value;
+  final Color? color;
 
   const SMEStatItem({
     super.key,
     required this.title,
+    this.color,
     required this.value,
   });
 
@@ -19,10 +21,10 @@ class SMEStatItem extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           value,
-          style: const TextStyle(
+          style:  TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16,
-            color:AppColors.primaryColor,
+            color:color??AppColors.primaryColor,
           ),
         ),
       ],

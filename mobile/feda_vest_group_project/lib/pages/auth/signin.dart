@@ -100,9 +100,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(width: size.width * 0.03),
                     AppTextField(
                       icon: Icons.email_outlined,
+                      controller: context.read<AuthCubit>().emailcontroller,
                       focusNode: emailFocus,
                       onChanged: (_) => validateFields(),
-
                       label: "Email",
                       hint: "Enter your email",
                     ),
@@ -119,13 +119,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       label: "Password",
                       hint: "Min. 6 characters",
                       hasImage: true,
-
                       image: Image.asset(AuthImages.lock),
                       isPassword: true,
-                      focusNode: emailFocus,
+                      focusNode: passwordFocus,
                       onChanged: (_) => validateFields(),
                       obscureText: showpassword,
-
                       onToggle: () {
                         setState(() => showpassword = !showpassword);
                       },
@@ -134,21 +132,21 @@ class _SignInScreenState extends State<SignInScreen> {
                       Padding(
                       padding: const EdgeInsets.only(bottom:10),
                         child: Text(
-                          emailError!,
+                          passwordError!,
                           style: TextStyle(color: Colors.red, fontSize: 12),
                         ),
                       ),
                     SizedBox(height: size.width * 0.04),
                     AppButton(
                       text: "Log In",
-                      onTap: isValidated
-                          ? () {
+                      onTap: isValidated?
+                          () {
                             Navigator.pushNamed(context, RouteName.bottomNav);
                               // final authCubit = context.read<AuthCubit>();
                               // final email = authCubit.emailcontroller.text
                               //     .trim();
                             }
-                          : null,
+                          :null
                     ),
 
                     Row(

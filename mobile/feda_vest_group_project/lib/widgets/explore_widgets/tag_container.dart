@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TagContainer extends StatelessWidget {
@@ -16,14 +17,14 @@ class TagContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color:
-            isHighlighted ? const Color(0xffE8F5E9) : Colors.grey.shade200,
+            isHighlighted ?  Colors.white : Colors.grey.shade200,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         text,
         style: TextStyle(
           fontSize: 11,
-          color: isHighlighted ? Colors.green : Colors.black,
+          color: isHighlighted ? AppColors.dashBoardYellow : Colors.black,
         ),
       ),
     );
