@@ -117,11 +117,7 @@ DATABASE_URL
 
 JWT_SECRET
 
-GROQ_API_KEY
-
 NODE_ENV=production
-
-PORT=2000
 
 Secrets are configured directly inside Render Dashboard for security.
 
