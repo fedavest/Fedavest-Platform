@@ -68,6 +68,8 @@ Flutter (mobile-first architecture)
 
 ### DevOps & Infrastructure
 
+- Repository creation and project structure setup
+
 - Dockerized backend service
 
 - GitHub Actions CI pipeline
