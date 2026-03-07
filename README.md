@@ -13,6 +13,8 @@ This branch documents the DevOps implementation for the FedaVest backend system.
 
 As the DevOps Engineer on this project, my responsibilities included:
 
+- Creating and managing the GitHub repository
+
 - Environment standardization
 
 - Docker containerization
