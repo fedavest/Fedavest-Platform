@@ -21,6 +21,8 @@ As the DevOps Engineer on this project, my responsibilities included:
 
 - CI pipeline implementation using GitHub Actions
 
+- Cloud deployment using Render
+
 - Secure environment variable management
 
 ## Deployment configuration on Render
