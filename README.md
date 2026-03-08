@@ -112,7 +112,7 @@ A production-grade Dockerfile was implemented.
 
 - No secrets were hardcoded.
 - All sensitive values were managed via:
-- .env file (local development only – excluded from Git)
+ .env file (local development only excluded from Git)
 - Render Environment Variables (Production)
 
 ### Examples:
@@ -127,7 +127,7 @@ Secrets are configured directly inside Render Dashboard for security.
 
 ## CI Implementation (GitHub Actions)
 
-- A lightweight and stable CI pipeline was implemented to:
+ A lightweight and stable CI pipeline was implemented to:
 - Validate dependency installation
 - Validate Docker image build
 - Ensure build consistency before deployment
