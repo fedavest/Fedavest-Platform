@@ -102,7 +102,7 @@ Only validated and tested changes are merged into main to maintain deployment st
 
 - CI pipeline triggered on production merges
 
-- Managed PostgreSQL database
+- Render PostgreSQL database
 
 - Environment variables securely configured in production
 
