@@ -11,4 +11,5 @@ class RouteName {
   static const String fundingGoal = '/funding_goal' ;
     static const String editFundingGoal = '/edit_funding_goal' ;
    static const String readiness = '/readiness_card';
+      static const String investorInterest = '/investor_choice';
 }

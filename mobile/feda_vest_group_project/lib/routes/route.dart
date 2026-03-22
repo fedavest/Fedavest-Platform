@@ -12,11 +12,14 @@ import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/run_
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/sme_readiness.dart';
 //import 'package:feda_vest_group_project/widgets/dashboard_widgets/verification_card.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/verifcation/verificationcenter.dart';
+import 'package:feda_vest_group_project/widgets/explore_widgets/investor_choice.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+            case RouteName.investorInterest:
+        return MaterialPageRoute(builder: (_) => InvestorInterestScreen());
       case RouteName.fundingDeets:
         return MaterialPageRoute(builder: (_) => FundingImpactScreen());
       case RouteName.fundingGoal:
