@@ -139,7 +139,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(height: size.width * 0.04),
                     AppButton(
                       text: "Log In",
-                      onTap: isValidated?
+                       isEnabled: isValidated,
+                      onTap: 
                              () {
                               context.read<AuthCubit>().login();
 
@@ -152,7 +153,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 //   authCubit.login();
                                 // }
                               }
-                            : null
+                           
                     ),
 
                     Row(
