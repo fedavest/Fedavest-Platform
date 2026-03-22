@@ -242,8 +242,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         width: double.infinity,
                         height: 50,
                         child: AppButton(
-                          onTap:(){
-Navigator.pushReplacementNamed(context, RouteName.bottomNav);
+                           isEnabled: isValidated,
+                          onTap:  
+                          (){
+                              
+Navigator.pushReplacementNamed(context, RouteName.bottomNav); 
                           } ,
                           // onTap: isValidated 
                           //     ? () {
@@ -253,7 +256,9 @@ Navigator.pushReplacementNamed(context, RouteName.bottomNav);
                                  
                           //       }
                           //     : null,
-                          child:Text("Sign Up", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
+                          child:Text("Sign Up", style: TextStyle(color: 
+                          
+                           Colors.white, fontWeight: FontWeight.w600),),
                         ),
                       ),
                       const SizedBox(height: 15),
