@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
+import 'package:feda_vest_group_project/routes/route_name.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dash_button_text.dart';
@@ -41,7 +42,7 @@ class VerificationCard extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.pushReplacementNamed(context, '/verificationCenter');
+                 Navigator.pushReplacementNamed(context, RouteName.viewCenter);
                 },
                 child: DashBoardMiniContainer(text: "View Center")),
             ],
@@ -51,12 +52,9 @@ class VerificationCard extends StatelessWidget {
           verificationRow("CAC Registration"),
           verificationRow("Location Verification"),
           const SizedBox(height: 16),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushReplacementNamed(context, '/verification');
-            },
-            child: DashButtonText(hasIcon: true, text: "Complete Verification"),
-          ),
+          DashButtonText(hasIcon: true, text: "Complete Verification", onTap:(){
+              Navigator.pushReplacementNamed(context, RouteName.verification);
+          } ,),
         ],
       ),
     );

@@ -1,7 +1,8 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/verifcation/success_verif.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+
 
 
 class VerificationFormScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class VerificationFormScreen extends StatelessWidget {
       body: Column(
         children: [
 
-          /// HEADER
+         
           Container(
             padding: const EdgeInsets.only(
                 top: 50, left: 20, right: 20, bottom: 30),
@@ -72,7 +73,6 @@ class VerificationFormScreen extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  /// REUSABLE INPUT FIELDS
                   const AppInputField(
                     label: "Business Verification",
                     hintText: "Enter your Business Name",
@@ -113,7 +113,14 @@ class VerificationFormScreen extends StatelessWidget {
                               BorderRadius.circular(12),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: (){
+   showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return VerificationSuccess();
+                          },
+                        );
+  },
                       icon:  Stack(
                         children: [
                           Icon(Icons.shield_outlined,color: Colors.white,size: 20,),
@@ -145,7 +152,7 @@ class VerificationFormScreen extends StatelessWidget {
 /// ONE REUSABLE INPUT CONTAINER
 ////////////////////////////////////////////////////////////
 
-class AppInputField extends StatelessWidget {
+class AppInputField extends StatefulWidget {
   final String label;
   final String hintText;
   final bool isDropdown;
@@ -158,13 +165,19 @@ class AppInputField extends StatelessWidget {
   });
 
   @override
+  State<AppInputField> createState() => _AppInputFieldState();
+}
+
+class _AppInputFieldState extends State<AppInputField> {
+   String? selectedValue;
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label,
+          Text(widget.label,
               style: const TextStyle(
                   fontWeight: FontWeight.w500)),
           const SizedBox(height: 8),
@@ -177,31 +190,48 @@ class AppInputField extends StatelessWidget {
               border: Border.all(
                   color: Colors.grey.shade300),
             ),
-            child: isDropdown
+            child: widget.isDropdown
                 ? DropdownButtonHideUnderline(
+
                     child: DropdownButton<String>(
+                     focusColor: Colors.transparent,
+                    value: selectedValue,
+                     autofocus: false,
                       isExpanded: true,
-                      hint: Text(hintText),
+                      hint: Text(widget.hintText),
                       items: const [
                         DropdownMenuItem(
-                          value: "Agriculture",
-                          child: Text("Agriculture"),
+                          value: "Grain Processing",
+                          child: Text("Grain Processing"),
                         ),
                         DropdownMenuItem(
-                          value: "Processing",
-                          child: Text("Processing"),
+                          value: "Livestock Poutry",
+                          child: Text("Livestock Poutry"),
                         ),
                         DropdownMenuItem(
-                          value: "Distribution",
-                          child: Text("Distribution"),
+                          value: "Fisheries & Aquaculture",
+                          child: Text("Fisheries & Aquaculture"),
+                        ),
+                       
+                         DropdownMenuItem(
+                          value: "Fruits & Vegetables",
+                          child: Text("Fruits & Vegetables"),
+                        ),
+                          DropdownMenuItem(
+                          value: "Dairy Products",
+                          child: Text("Dairy Products"),
                         ),
                       ],
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                          setState(() {
+                          selectedValue = value; 
+                        });
+                      },
                     ),
                   )
                 : TextField(
                     decoration: InputDecoration(
-                      hintText: hintText,
+                      hintText: widget.hintText,
                       border: InputBorder.none,
                     ),
                   ),

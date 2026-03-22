@@ -140,13 +140,19 @@ class _SignInScreenState extends State<SignInScreen> {
                     AppButton(
                       text: "Log In",
                       onTap: isValidated?
-                          () {
-                            Navigator.pushNamed(context, RouteName.bottomNav);
-                              // final authCubit = context.read<AuthCubit>();
-                              // final email = authCubit.emailcontroller.text
-                              //     .trim();
-                            }
-                          :null
+                             () {
+                              context.read<AuthCubit>().login();
+
+                                // final authCubit = context.read<AuthCubit>();
+                                // final email =
+                                //     authCubit.emailcontroller.text.trim();
+                                // if (email == 'admin@blogapi.com') {
+                                //   authCubit.admin();
+                                // } else {
+                                //   authCubit.login();
+                                // }
+                              }
+                            : null
                     ),
 
                     Row(

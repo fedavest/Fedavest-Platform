@@ -1,4 +1,4 @@
-import 'package:feda_vest_group_project/widgets/funding_profile.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/funding/funding_profile.dart';
 import 'package:flutter/material.dart';
 
 
@@ -25,8 +25,9 @@ class TextBoxField extends StatelessWidget {
         fillColor: Colors.white.withOpacity(0.7),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
-        ),
+borderSide: BorderSide(
+  color: Color(0xffb6b6b6)
+)        ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 18,

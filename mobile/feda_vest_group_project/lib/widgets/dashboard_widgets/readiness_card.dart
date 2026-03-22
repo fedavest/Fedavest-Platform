@@ -16,10 +16,11 @@ class InvestmentReadinessCard extends StatelessWidget {
                 MainAxisAlignment.spaceBetween,
             children: const [
               Text(
-                "Investment Readiness",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                " Readiness",
+                
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              Icon(Icons.trending_up, size: 18)
+              Icon(Icons.trending_up, size: 22)
             ],
           ),
           const SizedBox(height: 12),

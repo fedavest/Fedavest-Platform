@@ -23,5 +23,7 @@ static const bookmark = "assets/auth_assets/bookmark.jpg";
 static const error = "assets/auth_assets/error.jpg";
 static const arrow = "assets/auth_assets/arrow.jpg";
 static const check = "assets/auth_assets/check.jpg";
+static const aiImage = "assets/auth_assets/AI_image.jpg";
+static const fundingArrow = "assets/auth_assets/fundin_arrow.jpg";
 static const searchSuffixIcon = "assets/auth_assets/searchSuffixIcon.jpg";
 }

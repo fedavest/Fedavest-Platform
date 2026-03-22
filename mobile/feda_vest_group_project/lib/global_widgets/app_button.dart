@@ -8,13 +8,17 @@ class AppButton extends StatefulWidget {
     this.icon,
     this.showIcon = false,
     this.onTap,
+    this.isAi = false,
+    this.suffixIcon,
     this.height = 50, this.child,
   });
 
   final String? text;
     final Widget? child;
   final IconData? icon;
+    final IconData? suffixIcon;
   final bool showIcon;
+    final bool isAi;
   final VoidCallback? onTap;
   final double height;
 
@@ -31,9 +35,9 @@ class _AppButtonState extends State<AppButton> {
         height: widget.height,
         width: double.infinity,
         decoration: BoxDecoration(
-       color: widget.onTap != null
-        ? AppColors.primaryColor
-        : Colors.grey.shade400,
+       color: 
+        AppColors.primaryColor,
+    
           borderRadius: BorderRadius.circular(12),
         ),
         alignment: Alignment.center,
@@ -42,6 +46,14 @@ class _AppButtonState extends State<AppButton> {
           child: widget.child??Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+                if (widget.isAi) ...[
+                const SizedBox(width: 8),
+                Icon(
+                  widget.suffixIcon ?? Icons.arrow_forward,
+                  color: Colors.white,
+                ),
+              ],
+               SizedBox(width: 5),
               Text(
                 widget.text ?? "Create Account",
                 style:  TextStyle(

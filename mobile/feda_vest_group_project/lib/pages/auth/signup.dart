@@ -242,12 +242,17 @@ class _SignupScreenState extends State<SignupScreen> {
                         width: double.infinity,
                         height: 50,
                         child: AppButton(
-                          onTap: isValidated 
-                              ? () {
-                                Navigator.pushNamed(context, RouteName.bottomNav);
-                                 // authCubit.register(role: selectedRole);
-                                }
-                              : null,
+                          onTap:(){
+Navigator.pushReplacementNamed(context, RouteName.bottomNav);
+                          } ,
+                          // onTap: isValidated 
+                          //     ? () {
+                          //    //   Navigator.pushNamed(context, RouteName.bottomNav);
+                          //        authCubit.register(role: selectedRole);
+                            
+                                 
+                          //       }
+                          //     : null,
                           child:Text("Sign Up", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
                         ),
                       ),

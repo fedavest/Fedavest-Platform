@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/routes/route_name.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,11 @@ class FundingProgressCard extends StatelessWidget {
                 "Funding Progress",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              DashBoardMiniContainer()
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushReplacementNamed(context, RouteName.fundingDeets);
+                },
+                child: DashBoardMiniContainer())
             ],
           ),
           const SizedBox(height: 12),

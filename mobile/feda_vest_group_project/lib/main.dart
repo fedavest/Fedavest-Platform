@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       //     '/onBoard1':(context)=> OnboardingScreen(),
       //     '/verificationCenter':(context)=> VerificationCenterScreen(),
       //     '/verification':(context)=> VerificationFormScreen(),
-      //    '/Readiness':(context)=> InvestmentReadinessScreen(),
+       //  '/Readiness':(context)=> InvestmentReadinessScreen(),
       //    '/notification':(context)=> NotificationScreen()
       //   }
     );

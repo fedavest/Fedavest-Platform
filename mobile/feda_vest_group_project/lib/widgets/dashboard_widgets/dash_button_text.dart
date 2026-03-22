@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/routes/route_name.dart';
 import 'package:flutter/material.dart';
 class DashButtonText extends StatelessWidget {
   const DashButtonText({
@@ -16,7 +17,7 @@ class DashButtonText extends StatelessWidget {
     return GestureDetector(
            onTap: onTap ??
       () {
-        Navigator.pushReplacementNamed(context, '/Readiness');
+        Navigator.pushReplacementNamed(context, RouteName.readiness);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10),

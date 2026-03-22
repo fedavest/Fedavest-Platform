@@ -15,8 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-
-
 String bearerToken = "";
 bool showpasword = true;
 
@@ -30,18 +28,18 @@ class AuthCubit extends Cubit<AuthenticationState> {
   final newPasswordController = TextEditingController();
   final passwordcontroller = TextEditingController();
   final confirmPasswordController = TextEditingController();
-    UserModel user = UserModel();
+  UserModel user = UserModel();
 
-  Future<void> register( {required String role}) async {
+  Future<void> register({required String role}) async {
     emit(AuthLoadingState());
     try {
       var fullName = namecontroller.text.trim();
       log("email: ${emailcontroller.text.trim()}");
       log("password: ${passwordcontroller.text.trim()}");
       log("confirmPassword: ${confirmPasswordController.text.trim()}");
-       log("role: $role");
+      log("role: $role");
 
- if (role.isEmpty) {
+      if (role.isEmpty) {
         emit(AuthErrorState(error: "Please select a role"));
         return;
       }
@@ -72,12 +70,12 @@ class AuthCubit extends Cubit<AuthenticationState> {
 
       if (response.statusCode == 201 || response.statusCode == 200) {
         if (body.containsKey('token')) {
-           final token = body['token'];  await AuthUtils().storeBearerToken(token);
+          final token = body['token'];
+          await AuthUtils().storeBearerToken(token);
           log("Registration successful!");
-final userJson = Map<String, dynamic>.from(body['user']);
-userJson['role'] = role; 
-user = UserModel.fromJson(userJson);
-       
+          final userJson = Map<String, dynamic>.from(body['user']);
+          userJson['role'] = role;
+          user = UserModel.fromJson(userJson);
 
           passwordcontroller.clear();
           confirmPasswordController.clear();
@@ -116,7 +114,9 @@ user = UserModel.fromJson(userJson);
         }
       }
 
-      log("Email: ${emailcontroller.text}, Password: ${passwordcontroller.text}");
+      log(
+        "Email: ${emailcontroller.text}, Password: ${passwordcontroller.text}",
+      );
 
       final response = await authRepo.login(
         email: emailcontroller.text.trim(),
@@ -165,7 +165,7 @@ user = UserModel.fromJson(userJson);
           emailcontroller.text.trim(),
           passwordcontroller.text.trim(),
         ]);
-         await fetchUserprofie();
+        await fetchUserprofie();
         log('Fetched profile data: $body');
 
         emailcontroller.clear();
@@ -173,16 +173,17 @@ user = UserModel.fromJson(userJson);
         Utils.showTopSnackBar(message: message);
         emit(LoginState());
       } else {
-        //emit(AuthErrorState(error: ''));
+        emit(AuthErrorState(error: ''));
         Utils.showTopSnackBar(
-            message: body['message'] ?? 'Something went wrong');
+          message: body['message'] ?? 'Something went wrong',
+        );
       }
     } catch (e) {
       log('login error: $e');
       emit(AuthErrorState(error: 'An error occurred during login'));
     }
   }
-  
+
   Future<void> admin({bool useLocalStorage = false}) async {
     emit(AuthLoadingState());
 
@@ -197,7 +198,9 @@ user = UserModel.fromJson(userJson);
         }
       }
 
-      log("Email: ${emailcontroller.text}, Password: ${passwordcontroller.text}");
+      log(
+        "Email: ${emailcontroller.text}, Password: ${passwordcontroller.text}",
+      );
 
       final response = await authRepo.admin(
         email: emailcontroller.text.trim(),
@@ -246,7 +249,7 @@ user = UserModel.fromJson(userJson);
           emailcontroller.text.trim(),
           passwordcontroller.text.trim(),
         ]);
-         await fetchUserprofie();
+        await fetchUserprofie();
         log('Fetched profile data: $body');
 
         emailcontroller.clear();
@@ -256,7 +259,8 @@ user = UserModel.fromJson(userJson);
       } else {
         //emit(AuthErrorState(error: ''));
         Utils.showTopSnackBar(
-            message: body['message'] ?? 'Something went wrong');
+          message: body['message'] ?? 'Something went wrong',
+        );
       }
     } catch (e) {
       log('login error: $e');
@@ -287,7 +291,7 @@ user = UserModel.fromJson(userJson);
         Utils.showTopSnackBar(message: body['message']);
         user = UserModel.fromJson(body['user']);
         emit(ProfileUpdated());
-        email = null; 
+        email = null;
       } else {
         Utils.showTopSnackBar(message: body['message']);
         emit(const ErrorState(error: 'Error updating profile'));
@@ -325,49 +329,45 @@ user = UserModel.fromJson(userJson);
 
     try {
       final response = await http.post(url, headers: headers);
-        log('Logout response: ${response.statusCode}');
+      log('Logout response: ${response.statusCode}');
 
-      // 
-      // 
-        final prefs = await SharedPreferences.getInstance();
-        await AuthUtils().clearBearerToken();
-        await AuthUtils().clearUserInfo();
-        //await prefs.remove('bearer_token');
-        await prefs.remove('loginInfo');
-        await prefs.remove('data');
-        bearerToken = "";
+      //
+      //
+      final prefs = await SharedPreferences.getInstance();
+      await AuthUtils().clearBearerToken();
+      await AuthUtils().clearUserInfo();
+      //await prefs.remove('bearer_token');
+      await prefs.remove('loginInfo');
+      await prefs.remove('data');
+      bearerToken = "";
 
-        log('Token and user data removed');
-        if (response.statusCode  == 200) {
-        emit (LoggedOutState());
-        return true;        //successful return
-        }else {
-          emit(AuthErrorState(error: 'Logout failed'));
-          return false;
-        }
-            }
-     catch (e) {
-      emit(AuthErrorState(error: 'Logout error'));
-        log('Logout error:$e');
+      log('Token and user data removed');
+      if (response.statusCode == 200) {
+        emit(LoggedOutState());
+        return true; //successful return
+      } else {
+        emit(AuthErrorState(error: 'Logout failed'));
         return false;
-        }
+      }
+    } catch (e) {
+      emit(AuthErrorState(error: 'Logout error'));
+      log('Logout error:$e');
+      return false;
+    }
   }
 
-      //   final tokenAfter =prefs.getString('bearer_token');
-      //   log('Token after logout: $tokenAfter'); // should log : null
-      //   //clearTextForms();
+  //   final tokenAfter =prefs.getString('bearer_token');
+  //   log('Token after logout: $tokenAfter'); // should log : null
+  //   //clearTextForms();
 
-      //   emit(AuthenticationInitialState());
-      //   //log ('Logout tapped - starting logout process');
-      //   return true;
-      // } else {
-      //   emit(AuthErrorState(error: 'Logout failed'));
-      //   // log('Logout failed: ${response.statusCode} - ${response.body}');
-      //   // return false;
-      // }
-     
-
-      
+  //   emit(AuthenticationInitialState());
+  //   //log ('Logout tapped - starting logout process');
+  //   return true;
+  // } else {
+  //   emit(AuthErrorState(error: 'Logout failed'));
+  //   // log('Logout failed: ${response.statusCode} - ${response.body}');
+  //   // return false;
+  // }
 
   // gotoProfileEdit() {
   //   emit(AuthLoadingState());

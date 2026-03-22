@@ -1,7 +1,9 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/constants/asset_images.dart';
+import 'package:feda_vest_group_project/global_widgets/app_button.dart';
 import 'package:feda_vest_group_project/widgets/auth_header.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/progress_bar.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/ai_show_dialogue.dart';
 import 'package:flutter/material.dart';
 
 class InvestmentReadinessScreen extends StatelessWidget {
@@ -15,10 +17,10 @@ class InvestmentReadinessScreen extends StatelessWidget {
         children: [
           /// HEADER SECTION
           AuthHeader(
-            avatarText: "69/\n100" ,
-           onTap: (){
-            Navigator.pushReplacementNamed(context, '/bottomNav');
-           },
+            avatarText: "69/\n100",
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/bottomNav');
+            },
             isReadiness: true,
             showIcon: true,
             isSigninScreen: true,
@@ -50,22 +52,16 @@ class InvestmentReadinessScreen extends StatelessWidget {
                         image: Image(image: AssetImage(AuthImages.check)),
                         title: "Strengths",
                         value: "5",
-                    
-                   
                       ),
                       SmallStatCard(
                         image: Image(image: AssetImage(AuthImages.error)),
                         title: "Gaps",
                         value: "3",
-                     
-                   
                       ),
                       SmallStatCard(
                         image: Image(image: AssetImage(AuthImages.arrow)),
                         title: "Potential",
                         value: "90+",
-                     
-                 
                       ),
                     ],
                   ),
@@ -91,19 +87,19 @@ class InvestmentReadinessScreen extends StatelessWidget {
                     isBiz: true,
                     score: 65,
                     subtitle: "Strong financial records and projections",
-                   image: Image(image: AssetImage(AuthImages.bookmark)),
+                    image: Image(image: AssetImage(AuthImages.bookmark)),
                   ),
                   BreakdownCard(
                     title: "Team & Operation",
                     score: 78,
                     subtitle: "Experience team with clear roles",
-                  image: Image(image: AssetImage(AuthImages.teams)),
+                    image: Image(image: AssetImage(AuthImages.teams)),
                   ),
                   BreakdownCard(
                     title: "Market Opportunity",
                     score: 70,
                     subtitle: "Growing market with competition",
-image: Image(image: AssetImage(AuthImages.arrow)),
+                    image: Image(image: AssetImage(AuthImages.arrow)),
                   ),
 
                   const SizedBox(height: 24),
@@ -132,28 +128,41 @@ image: Image(image: AssetImage(AuthImages.arrow)),
                   ),
 
                   const SizedBox(height: 24),
-
-                  /// BUTTON
                   SizedBox(
                     width: double.infinity,
                     height: 55,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Update Readiness Data",
-                      
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
+                    child: AppButton(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AiShowDialogue();
+                          },
+                        );
+                      },
+                      text: "Update Readiness Data",
                     ),
                   ),
 
-                  const SizedBox(height: 10),
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   height: 55,
+                  //   child: ElevatedButton(
+                  //     style: ElevatedButton.styleFrom(
+                  //       backgroundColor: AppColors.primaryColor,
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //       ),
+                  //     ),
+                  //     onPressed: () {},
+                  //     child: const Text(
+                  //       "Update Readiness Data",
+
+                  //       style: TextStyle(fontSize: 16, color: Colors.white),
+                  //     ),
+                  //   ),
+                  // ),
+                  SizedBox(height: 10),
                   const Center(
                     child: Text(
                       "Last updated Feb 12, 2026. AI analysis refreshes weekly",
@@ -170,25 +179,22 @@ image: Image(image: AssetImage(AuthImages.arrow)),
   }
 }
 
-////////////////////////////////////////////////////////////
-/// ONE REUSABLE BREAKDOWN CONTAINER
-////////////////////////////////////////////////////////////
-
 class BreakdownCard extends StatelessWidget {
   final String title;
   final int score;
   final String subtitle;
   final IconData? icon;
   final Image image;
-   final bool isBiz;
+  final bool isBiz;
 
   const BreakdownCard({
     super.key,
-       this.isBiz = false,
+    this.isBiz = false,
     required this.title,
     required this.score,
     required this.subtitle,
-     this.icon, required this.image,
+    this.icon,
+    required this.image,
   });
 
   @override
@@ -205,7 +211,7 @@ class BreakdownCard extends StatelessWidget {
         children: [
           Row(
             children: [
-             image,
+              image,
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -236,9 +242,8 @@ class BreakdownCard extends StatelessWidget {
               minHeight: 6,
               backgroundColor: Colors.grey.shade200,
               valueColor: AlwaysStoppedAnimation<Color>(
-          isBiz
-              ? const Color(0xff1E3DA4)
-              : const Color(0xFF103813),)
+                isBiz ? const Color(0xff1E3DA4) : const Color(0xFF103813),
+              ),
             ),
           ),
         ],
@@ -263,7 +268,7 @@ class SmallStatCard extends StatelessWidget {
     required this.title,
     required this.value,
     this.icon,
- this.color,
+    this.color,
     required this.image,
   });
 
@@ -281,7 +286,10 @@ class SmallStatCard extends StatelessWidget {
           image,
           const SizedBox(height: 6),
 
-          Text(title, style: const TextStyle(fontSize: 12, color: Colors.black)),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 12, color: Colors.black),
+          ),
           const SizedBox(height: 4),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
         ],

@@ -1,9 +1,11 @@
 import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
 import 'package:feda_vest_group_project/global_widgets/bottom_nav.dart';
+import 'package:feda_vest_group_project/routes/route_name.dart';
 import 'package:feda_vest_group_project/widgets/auth_header.dart';
 import 'package:feda_vest_group_project/widgets/build_menu_item.dart';
-import 'package:feda_vest_group_project/widgets/funding_profile.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/ai_show_dialogue.dart';
+import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/funding/funding_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -50,7 +52,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 title: 'Business Verification',
 
                 subtitle: 'Verify your business and get verified',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, RouteName.verification);
+                },
               ),
 
               const SizedBox(height: 12),
@@ -60,24 +64,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 image: Image(image: AssetImage(AuthImages.smeToolsIcon2)),
                 title: 'Funding Profile',
                 subtitle: 'Get your funding, your way and access to loan',
-            onTap: () async {
-  final result = await showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return const FundingProfileDialog();
-    },
-  );
-  
-  if (result != null) {
-    // Handle the saved data
-    print('Funding Goal: ${result['fundingGoal']}');
-    print('Category: ${result['category']}');
-    print('Milestones: ${result['milestones']}');
-  }
-},
-              ),
 
-              const SizedBox(height: 12),
+  onTap: (){
+   showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return FundingProfileDialog();
+                          },
+                        );
+  },
+
+              ),
+               SizedBox(height: 12),
 
               // AI Scoring
               BuildMenuItem(
@@ -85,7 +83,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 title: 'AI Scoring',
 
                 subtitle: 'Get your AI scoring to boost funding chances',
-                onTap: () {},
+                  onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AiShowDialogue();
+                          },
+                        );
+                      },
               ),
 
               const SizedBox(height: 24),
