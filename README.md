@@ -10,6 +10,13 @@ The platform addresses trust gaps in impact financing by combining structured ve
 
 This repository represents the full-stack capstone implementation, including backend infrastructure, mobile integration, and DevOps for production deployment and CI/CD workflow.
 
+## Demo Prototype
+
+Since the full system is still under active development, a functional prototype was built to demonstrate the core user experience and product vision.
+
+Mobile Demo (Expo Go):
+https://lnkd.in/eZ9r2s2s
+
 ## Problem
 
 Food-system SMEs often struggle to access funding due to:
