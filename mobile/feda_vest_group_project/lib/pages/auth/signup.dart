@@ -112,7 +112,12 @@ class _SignupScreenState extends State<SignupScreen> {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                AuthHeader(showIcon: true),
+                AuthHeader(
+                  showIcon: true,
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, RouteName.onboard);
+                  },
+                ),
                 Padding(
                   padding: EdgeInsets.all(size.width * 0.05),
                   child: Column(
