@@ -76,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   },
 
               ),
-               SizedBox(height: 12),
+               SizedBox(height: Utils.h(12)),
 
               // AI Scoring
               BuildMenuItem(
@@ -94,18 +94,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       },
               ),
 
-              const SizedBox(height: 24),
+              SizedBox(height: Utils.h(24)),
 
               // Account Section
-              const Text(
+              Text(
                 'Account',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: Utils.sp(16),
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF000000),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: Utils.h(16)),
 
               // Sign Out
               BuildMenuItem(

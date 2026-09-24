@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -59,7 +60,7 @@ class _AuthHeaderState extends State<AuthHeader> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 25.0),
+            padding: EdgeInsets.only(top: Utils.h(25)),
             child: widget.isSignupScreen
                 ? SizedBox.shrink()
                 : widget.showIcon
@@ -68,19 +69,19 @@ class _AuthHeaderState extends State<AuthHeader> {
                   child: widget.isReadiness? Icon(Icons.arrow_back_ios, color: Colors.white):Icon(Icons.arrow_back, color: Colors.white))
                 : SizedBox.shrink(),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: Utils.h(20)),
           widget.isSigninScreen
               ? Column(
                   children: [
                     Center(
                       child: CircleAvatar(
-                        radius: 30,
+                        radius: Utils.r(30),
                         backgroundColor: widget.color ?? Color(0xff144718),
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: AppText(
                             text: widget.avatarText ?? "FD",
-                            textSize: 32,
+                            textSize: Utils.sp(32),
                             color: widget.textcolor ?? Colors.white,
                             fontWeight: FontWeight.w600,
                           ),
@@ -89,7 +90,7 @@ class _AuthHeaderState extends State<AuthHeader> {
                     ),
                     AppText(
                       text: widget.heading ?? "FedaVest",
-                      textSize: 24,
+                      textSize: Utils.sp(24),
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
@@ -107,14 +108,14 @@ class _AuthHeaderState extends State<AuthHeader> {
                     fontWeight: widget.isSignupScreen
                         ? FontWeight.w500
                         : FontWeight.bold,
-                    fontSize: widget.isSignupScreen ? 14 : 24,
+                    fontSize: Utils.sp(widget.isSignupScreen ? 14 : 24),
                   ),
                 ),
-          SizedBox(height: 6),
+          SizedBox(height: Utils.h(6)),
           widget.isprofile
               ? Center(
                 child: Container(
-                  width: 100,
+                  width: Utils.w(100),
                   padding: EdgeInsets.symmetric(vertical:  size.width * 0.004,),
                 //  height: 100,
                     decoration: BoxDecoration(color: Colors.white,
@@ -146,7 +147,7 @@ class _AuthHeaderState extends State<AuthHeader> {
           style: GoogleFonts.inter(
             color: Colors.white,
             fontWeight: widget.isSignupScreen ? FontWeight.bold : FontWeight.w400,
-            fontSize: widget.isSignupScreen ? 24 : 16,
+            fontSize: Utils.sp(widget.isSignupScreen ? 24 : 16),
           ),
         ),
       )
@@ -163,7 +164,7 @@ class _AuthHeaderState extends State<AuthHeader> {
                         fontWeight: widget.isSignupScreen
                             ? FontWeight.bold
                             : FontWeight.w400,
-                        fontSize: widget.isSignupScreen ? 24 : 16,
+                        fontSize: Utils.sp(widget.isSignupScreen ? 24 : 16),
                       ),
                     ),
                     GestureDetector(
@@ -179,7 +180,7 @@ class _AuthHeaderState extends State<AuthHeader> {
                     fontWeight: widget.isSignupScreen
                         ? FontWeight.bold
                         : FontWeight.w400,
-                    fontSize: widget.isSignupScreen ? 24 : 16,
+                    fontSize: Utils.sp(widget.isSignupScreen ? 24 : 16),
                   ),
                 ),
         ],

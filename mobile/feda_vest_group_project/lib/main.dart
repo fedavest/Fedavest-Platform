@@ -38,8 +38,9 @@ class MyApp extends StatelessWidget {
       navigatorKey: AppRoute.navigatorKey,
       onGenerateRoute: Routes.generateRoute,
       builder: (context, child) {
+        if (child == null) return const SizedBox.shrink();
         final width = MediaQuery.sizeOf(context).width;
-        if (width <= 600 || child == null) return child;
+        if (width <= 600) return child;
         return ColoredBox(
           color: const Color(0xffF5F6F7),
           child: Center(

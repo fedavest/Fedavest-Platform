@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/verifcation/success_verif.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +18,16 @@ class VerificationFormScreen extends StatelessWidget {
 
          
           Container(
-            padding: const EdgeInsets.only(
-                top: 50, left: 20, right: 20, bottom: 30),
-            decoration: const BoxDecoration(
+            padding: EdgeInsets.only(
+                top: Utils.h(50),
+                left: Utils.w(20),
+                right: Utils.w(20),
+                bottom: Utils.h(30)),
+            decoration: BoxDecoration(
               color: AppColors.primaryColor,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(28),
-                bottomRight: Radius.circular(28),
+                bottomLeft: Radius.circular(Utils.r(28)),
+                bottomRight: Radius.circular(Utils.r(28)),
               ),
             ),
             child: Column(
@@ -36,19 +40,19 @@ class VerificationFormScreen extends StatelessWidget {
                         Navigator.pushReplacementNamed(context, '/bottomNav');
                       },
                       child: Icon(Icons.arrow_back_ios,
-                          color: Colors.white, size: 18),
+                          color: Colors.white, size: Utils.r(18)),
                     ),
-                    SizedBox(width: 8),
+                    SizedBox(width: Utils.w(8)),
                     Text(
                       "Verification",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: Utils.sp(20),
                           fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: Utils.h(8)),
                 Text(
                   "Complete all steps to unlock full access",
                   style: TextStyle(color: Colors.white70),
@@ -60,18 +64,18 @@ class VerificationFormScreen extends StatelessWidget {
           /// BODY
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(Utils.w(16)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  const Text(
+                  Text(
                     "Business Verification",
                     style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: Utils.sp(20), fontWeight: FontWeight.bold),
                   ),
 
-                  const SizedBox(height: 16),
+                  SizedBox(height: Utils.h(16)),
 
                   const AppInputField(
                     label: "Business Verification",
@@ -99,18 +103,18 @@ class VerificationFormScreen extends StatelessWidget {
                     isDropdown: true,
                   ),
 
-                  const SizedBox(height: 24),
+                  SizedBox(height: Utils.h(24)),
 
                   /// SUBMIT BUTTON
                   SizedBox(
                     width: double.infinity,
-                    height: 55,
+                    height: Utils.h(55),
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(12),
+                              BorderRadius.circular(Utils.r(12)),
                         ),
                       ),
                       onPressed: (){
@@ -123,13 +127,13 @@ class VerificationFormScreen extends StatelessWidget {
   },
                       icon:  Stack(
                         children: [
-                          Icon(Icons.shield_outlined,color: Colors.white,size: 20,),
+                          Icon(Icons.shield_outlined,color: Colors.white,size: Utils.r(20),),
                           Positioned(
                             top:2 ,
                             left: 2,
                             right: 2,
                             bottom: 2,
-                            child: Icon(Icons.check, color: Colors.white,size: 12,))
+                            child: Icon(Icons.check, color: Colors.white,size: Utils.r(12),))
                           ]),
                       label: const AppText(
                       text:   "Submit Verification",
@@ -173,20 +177,20 @@ class _AppInputFieldState extends State<AppInputField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 18),
+      padding: EdgeInsets.only(bottom: Utils.h(18)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label,
               style: const TextStyle(
                   fontWeight: FontWeight.w500)),
-          const SizedBox(height: 8),
+          SizedBox(height: Utils.h(8)),
           Container(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 14, vertical: 4),
+            padding: EdgeInsets.symmetric(
+                horizontal: Utils.w(14), vertical: Utils.h(4)),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(Utils.r(14)),
               border: Border.all(
                   color: Colors.grey.shade300),
             ),
