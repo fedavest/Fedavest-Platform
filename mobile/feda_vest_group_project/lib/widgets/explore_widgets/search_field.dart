@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 class ReusableSearchField extends StatelessWidget {
   const ReusableSearchField({super.key, this.image});
@@ -11,9 +12,9 @@ final Image? image;
         fillColor: Colors.white,
         prefixIcon: const Icon(Icons.search),
         suffixIcon: image?? Icon(Icons.filter),
-        contentPadding: const EdgeInsets.symmetric(vertical: 14),
+        contentPadding: EdgeInsets.symmetric(vertical: Utils.h(14)),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Utils.r(12)),
           borderSide: BorderSide.none,
         ),
       ),

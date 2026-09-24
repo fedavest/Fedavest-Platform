@@ -8,6 +8,7 @@ class ApiConstants {
 
   static String get login => '$_api/v1/auth/login';
   static String get register => '$_api/v1/auth/register';
+  static String get aiPredict => '$_api/v1/ai/predict';
   static String get fetchUserProfile => '$_api/profile/me';
   static String get updateUserProfile => '$_api/profile/create';
 

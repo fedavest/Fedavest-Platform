@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/progress_bar.dart';
 import 'package:feda_vest_group_project/widgets/explore_widgets/sme+stat_item.dart';
 import 'package:feda_vest_group_project/widgets/explore_widgets/tag_container.dart';
@@ -25,10 +26,10 @@ class SMECardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(Utils.w(16)),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(Utils.r(16)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,9 +40,9 @@ class SMECardContainer extends StatelessWidget {
               CircleAvatar(
                 backgroundColor:  AppColors.primaryColor,
                 child: Text(initials,
-                    style: const TextStyle(color: Colors.white)),
+                    style: TextStyle(color: Colors.white, fontSize: Utils.sp(14))),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: Utils.w(10)),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,26 +53,26 @@ class SMECardContainer extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 2),
-                    const Text(
+                    SizedBox(height: Utils.h(2)),
+                    Text(
                       "Port Harcourt, Nigeria",
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                      style: TextStyle(fontSize: Utils.sp(12), color: Colors.grey),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.shield_sharp, color: Colors.green, size: 20),
+              Icon(Icons.shield_sharp, color: Colors.green, size: Utils.r(20)),
             ],
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: Utils.h(12)),
 
           /// Stats
           Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(Utils.w(15)),
             decoration: BoxDecoration(
               color: Color(0xffF4F4F4),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(Utils.r(16)),
               
             ),
             child: IntrinsicHeight(
@@ -88,18 +89,18 @@ class SMECardContainer extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 10),
+          SizedBox(height: Utils.h(10)),
 
           const ProgressBar(
             value: 3.0,
           ),
 
-          const SizedBox(height: 10),
+          SizedBox(height: Utils.h(10)),
 
           Row(
             children: [
               const TagContainer(text: "Production"),
-              const SizedBox(width: 6),
+              SizedBox(width: Utils.w(6)),
               TagContainer(text: industry, isHighlighted: true),
             ],
           ),

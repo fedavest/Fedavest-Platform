@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 class DashboardCard extends StatelessWidget {
   final Widget child;
@@ -12,10 +13,10 @@ class DashboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: padding ?? const EdgeInsets.all(16),
+      padding: padding ?? EdgeInsets.all(Utils.w(16)),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(Utils.r(16)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.08),

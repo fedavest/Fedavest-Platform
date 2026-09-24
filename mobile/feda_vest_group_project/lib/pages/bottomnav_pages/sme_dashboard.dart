@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/auth_header.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/funding_card.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/quick_section.dart';
@@ -22,19 +23,19 @@ class SmeDashboardScreen extends StatelessWidget {
               heading: "Welcome,",
             ),
       
-            const SizedBox(height: 16),
-      
+SizedBox(height: Utils.h(16)),
+
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: Utils.w(16)),
               child: Column(
-                children: const [
-                  VerificationCard(),
-                  SizedBox(height: 10),
-                  InvestmentReadinessCard(),
-                  SizedBox(height: 20),
-                  FundingProgressCard(),
-                  SizedBox(height: 16),
-                  QuickActionsSection(),
+                children: [
+                  const VerificationCard(),
+                  SizedBox(height: Utils.h(10)),
+                  const InvestmentReadinessCard(),
+                  SizedBox(height: Utils.h(20)),
+                  const FundingProgressCard(),
+                  SizedBox(height: Utils.h(16)),
+                  const QuickActionsSection(),
                 ],
               ),
             )

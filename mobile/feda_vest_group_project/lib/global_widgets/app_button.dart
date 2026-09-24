@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 class AppButton extends StatefulWidget {
   const AppButton({
     super.key,
@@ -36,19 +37,19 @@ class _AppButtonState extends State<AppButton> {
     return GestureDetector(
       onTap: isDisabled ? null : widget.onTap, // 👈 disable tap
       child: Container(
-        height: widget.height,
+        height: Utils.h(widget.height),
         width: double.infinity,
         decoration: BoxDecoration(
           color: isDisabled
               ? Colors.grey.shade400 // 👈 grey when disabled
               : AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Utils.r(12)),
         ),
         alignment: Alignment.center,
         child: Opacity(
           opacity: isDisabled ? 0.7 : 1, // 👈 subtle UX improvement
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: Utils.w(16)),
             child: widget.child ??
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +65,7 @@ class _AppButtonState extends State<AppButton> {
                     Text(
                       widget.text ?? "Create Account",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: Utils.sp(16),
                         color: Colors.white,
                         fontWeight: widget.showIcon
                             ? FontWeight.w500

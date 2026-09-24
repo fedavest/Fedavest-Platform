@@ -1,3 +1,4 @@
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 class QuickActionButton extends StatelessWidget {
   final Image image;
@@ -12,11 +13,11 @@ class QuickActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:  EdgeInsets.all(16),
-      margin: EdgeInsets.symmetric(horizontal: 13),
+      padding: EdgeInsets.all(Utils.w(16)),
+      margin: EdgeInsets.symmetric(horizontal: Utils.w(13)),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(Utils.r(16)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.05),

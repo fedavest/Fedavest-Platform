@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 class FilterChipButton extends StatelessWidget {
   final String text;
@@ -13,10 +14,11 @@ class FilterChipButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      padding: EdgeInsets.symmetric(
+          horizontal: Utils.w(14), vertical: Utils.h(8)),
       decoration: BoxDecoration(
         color: isSelected ? AppColors.primaryColor : Color(0XffF4F4F4),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(Utils.r(20)),
         border: Border.all(
 color: Color(0xff525252)
         )

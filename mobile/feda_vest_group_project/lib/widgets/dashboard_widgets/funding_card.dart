@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/routes/route_name.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:flutter/material.dart';
@@ -27,25 +28,25 @@ class FundingProgressCard extends StatelessWidget {
                 child: DashBoardMiniContainer())
             ],
           ),
-          const SizedBox(height: 12),
-          const Text(
+          SizedBox(height: Utils.h(12)),
+          Text(
             "\$4.5M",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: Utils.sp(18),
                 fontWeight: FontWeight.bold,
                 color: AppColors.dashBoardYellow),
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: Utils.h(6)),
           ClipRRect(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(Utils.r(10)),
             child: LinearProgressIndicator(
               value: 0.45,
-              minHeight: 8,
+              minHeight: Utils.h(8),
               backgroundColor: Colors.grey.shade200,
               color: AppColors.primaryColor,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: Utils.h(8)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

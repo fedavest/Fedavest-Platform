@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardMiniContainer extends StatelessWidget {
@@ -17,10 +18,11 @@ class DashBoardMiniContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(
+          horizontal: Utils.w(12), vertical: Utils.h(6)),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(Utils.r(20)),
       ),
       child: hasIcon
           ? Row(
@@ -31,14 +33,14 @@ class DashBoardMiniContainer extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: color?? AppColors.primaryColor,
-                    fontSize: 12,
+                    fontSize: Utils.sp(12),
                   ),
                 ),
                   const SizedBox(width: 6),
                     if (icon != null) ...[
                   Icon(
                     icon,
-                    size: 14,
+                    size: Utils.r(14),
                     color: iconColor??AppColors.primaryColor,
                   ),
                 
@@ -49,7 +51,7 @@ class DashBoardMiniContainer extends StatelessWidget {
               text,
               style: TextStyle(
                 color: AppColors.primaryColor,
-                fontSize: 12,
+                fontSize: Utils.sp(12),
               ),
             ),
     );

@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/asset_images.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/quick_actions.dart';
 import 'package:flutter/material.dart';
 class QuickActionsSection extends StatelessWidget {
@@ -8,12 +9,12 @@ class QuickActionsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        Text(
+      children: [
+        const Text(
           "Quick Actions",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 12),
+        SizedBox(height: Utils.h(12)),
         Row(
           children: [
             Expanded(
@@ -21,7 +22,7 @@ class QuickActionsSection extends StatelessWidget {
                   image: Image(image: AssetImage(AuthImages.uploadImage)),
                   title: "Upload Docs"),
             ),
-            SizedBox(width: 12),
+            SizedBox(width: Utils.w(12)),
             Expanded(
               child: QuickActionButton(
                 image: Image(image: AssetImage(AuthImages.updateImage)),
@@ -29,7 +30,7 @@ class QuickActionsSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 12),
+        SizedBox(height: Utils.h(12)),
         Row(
           children: [
             Expanded(
@@ -37,7 +38,7 @@ class QuickActionsSection extends StatelessWidget {
                  image: Image(image: AssetImage(AuthImages.fundingImage)),
                   title: "Funding Goal"),
             ),
-            SizedBox(width: 12),
+            SizedBox(width: Utils.w(12)),
             Expanded(
               child: QuickActionButton(
 image: Image(image: AssetImage(AuthImages.riskImage)),

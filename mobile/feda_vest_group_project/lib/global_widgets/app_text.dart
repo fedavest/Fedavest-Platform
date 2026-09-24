@@ -29,7 +29,7 @@ class AppText extends StatelessWidget {
       textAlign: textAlign,
       maxLines: maxline ?? 1,
       style: GoogleFonts.inter(
-        fontSize: textSize != null ? Utils.textSize(textSize!) : null,
+        fontSize: textSize != null ? Utils.sp(textSize!) : null,
         fontWeight: fontWeight,
         color: color,
         letterSpacing: letterSpacing,

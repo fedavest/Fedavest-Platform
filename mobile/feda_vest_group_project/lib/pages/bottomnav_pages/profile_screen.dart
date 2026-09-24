@@ -2,6 +2,7 @@ import 'package:feda_vest_group_project/constants/asset_images.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
 import 'package:feda_vest_group_project/global_widgets/bottom_nav.dart';
 import 'package:feda_vest_group_project/routes/route_name.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/auth_header.dart';
 import 'package:feda_vest_group_project/widgets/build_menu_item.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/readiness/ai_show_dialogue.dart';
@@ -34,17 +35,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(Utils.w(16)),
             children: [
-              const Text(
+              Text(
                 'SME Tools',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: Utils.sp(16),
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF000000),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: Utils.h(16)),
 
               BuildMenuItem(
                 icon: Icons.verified_outlined,
@@ -57,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
               ),
 
-              const SizedBox(height: 12),
+              SizedBox(height: Utils.h(12)),
 
               // Funding Profile
               BuildMenuItem(

@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/routes/route_name.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 class DashButtonText extends StatelessWidget {
   const DashButtonText({
@@ -20,20 +21,20 @@ class DashButtonText extends StatelessWidget {
         Navigator.pushReplacementNamed(context, RouteName.readiness);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: EdgeInsets.symmetric(vertical: Utils.h(10)),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.grey.shade100,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Utils.r(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               text ?? "View Readiness ",
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.primaryColor,
-                fontSize: 14,
+                fontSize: Utils.sp(14),
               ),
             ),
       
@@ -43,7 +44,7 @@ class DashButtonText extends StatelessWidget {
                       const SizedBox(width: 6),
                       Icon(
                         Icons.arrow_forward,
-                        size: 18,
+                        size: Utils.r(18),
                         color: AppColors.primaryColor,
                       ),
                     ],

@@ -1,4 +1,5 @@
 import 'package:feda_vest_group_project/constants/asset_images.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/explore_widgets/filter_chip.dart';
 import 'package:feda_vest_group_project/widgets/explore_widgets/search_field.dart';
 import 'package:feda_vest_group_project/widgets/explore_widgets/sme_card.dart';
@@ -24,31 +25,31 @@ class ExploreSmesScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: Utils.w(16)),
         child: ListView(
-          children: const [
-            SizedBox(height: 12),
+          children: [
+            SizedBox(height: Utils.h(12)),
             ReusableSearchField(
               image: Image(image: AssetImage(AuthImages.arrow)),
             ),
-            SizedBox(height: 14),
+            SizedBox(height: Utils.h(14)),
 
             /// Filters Row
             Row(
               children: [
                 FilterChipButton(text: "Meal Gap", isSelected: false),
-                SizedBox(width: 8),
+                SizedBox(width: Utils.w(8)),
                 FilterChipButton(text: "Distribution", isSelected: false),
-                SizedBox(width: 8),
+                SizedBox(width: Utils.w(8)),
                 FilterChipButton(text: "Production", isSelected: true),
               ],
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: Utils.h(16)),
 
             /// SME CARDS
             SMECardContainer(),
-            SizedBox(height: 14),
+            SizedBox(height: Utils.h(14)),
             SMECardContainer(
               name: "SunBake Co-op",
               initials: "SB",
@@ -58,7 +59,7 @@ class ExploreSmesScreen extends StatelessWidget {
               industry: "Bakery & Confectionery",
             ),
 
-            SizedBox(height: 14),
+            SizedBox(height: Utils.h(14)),
             SMECardContainer(
               name: "SunBake Co-op",
               initials: "SB",

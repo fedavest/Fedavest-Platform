@@ -1,6 +1,7 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
 import 'package:feda_vest_group_project/routes/route_name.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/base_card_container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dashB_Mini_Container.dart';
 import 'package:feda_vest_group_project/widgets/dashboard_widgets/dash_button_text.dart';
@@ -11,15 +12,15 @@ class VerificationCard extends StatelessWidget {
 
   Widget verificationRow(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: EdgeInsets.symmetric(vertical: Utils.h(6)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title),
-          const Icon(
+           Icon(
             Icons.check_circle_outline,
             color: AppColors.primaryColor,
-            size: 18,
+            size: Utils.r(18),
           ),
         ],
       ),
@@ -47,11 +48,11 @@ class VerificationCard extends StatelessWidget {
                 child: DashBoardMiniContainer(text: "View Center")),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: Utils.h(12)),
           verificationRow("National ID"),
           verificationRow("CAC Registration"),
           verificationRow("Location Verification"),
-          const SizedBox(height: 16),
+          SizedBox(height: Utils.h(16)),
           DashButtonText(hasIcon: true, text: "Complete Verification", onTap:(){
               Navigator.pushReplacementNamed(context, RouteName.verification);
           } ,),

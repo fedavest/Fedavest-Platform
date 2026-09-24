@@ -1,5 +1,6 @@
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/constants/dismiss_keyboard.dart';
+import 'package:feda_vest_group_project/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatefulWidget {
@@ -64,12 +65,12 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.only(bottom: Utils.h(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label),
-          const SizedBox(height: 8),
+          SizedBox(height: Utils.h(8)),
           TextField(
                onTapOutside: (_) => dismissKeyboard(context),
       onChanged: (value) => widget.onChanged?.call(value),
@@ -78,9 +79,9 @@ class _AppTextFieldState extends State<AppTextField> {
             focusNode: _effectiveFocusNode,
             decoration: InputDecoration(
                 errorText: widget.errorText,
-        errorStyle: const TextStyle(
+        errorStyle: TextStyle(
           color: Colors.red,
-          fontSize: 10,
+          fontSize: Utils.sp(10),
         ),
               hintText: widget.hint,
               prefixIcon: widget.hasImage? widget.image : Icon(widget.icon),
@@ -99,19 +100,19 @@ class _AppTextFieldState extends State<AppTextField> {
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  EdgeInsets.symmetric(horizontal: Utils.w(16), vertical: Utils.h(14)),
                     focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: AppColors.primaryColor),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Utils.r(12)),
         ),
         enabledBorder: OutlineInputBorder(
          borderSide: BorderSide(
                   color: AppColors.borderColor
                 ),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(Utils.r(12)),
         ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(Utils.r(12)),
                 borderSide: BorderSide(
                   color: AppColors.borderColor
                 ),

@@ -1,25 +1,50 @@
 
+import 'dart:math' as math;
+
 import 'package:feda_vest_group_project/constants/app_colors.dart';
 import 'package:feda_vest_group_project/global_widgets/app_text.dart';
 import 'package:feda_vest_group_project/routes/app_route.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
-  static CustomDeviceType getDeviceType() {
-    final data = MediaQueryData.fromView(
-      WidgetsBinding.instance.platformDispatcher.views.first,
-    );
-    return data.size.shortestSide < 500
-        ? CustomDeviceType.phone
-        : CustomDeviceType.tablet;
+  static const double _designWidth = 390;
+  static const double _designHeight = 844;
+
+  static Size get screenSize {
+    final view = WidgetsBinding.instance.platformDispatcher.views.first;
+    return view.physicalSize / view.devicePixelRatio;
   }
 
-  static double textSize(double size) {
-    if (getDeviceType() == CustomDeviceType.tablet) {
-      return size - 2;
-    }
-    return size;
-  }
+  static double get screenWidth => screenSize.width;
+  static double get screenHeight => screenSize.height;
+  static double get screenShortestSide => math.min(screenWidth, screenHeight);
+
+  static double get _widthFactor =>
+      (screenWidth / _designWidth).clamp(0.85, 1.5).toDouble();
+
+  static double get _heightFactor =>
+      (screenHeight / _designHeight).clamp(0.85, 1.5).toDouble();
+
+  static double get _fontFactor =>
+      (screenShortestSide / _designWidth).clamp(0.9, 1.35).toDouble();
+
+  static CustomDeviceType getDeviceType() => screenShortestSide < 500
+      ? CustomDeviceType.phone
+      : CustomDeviceType.tablet;
+
+  /// Scales a horizontal/dimension value relative to the device width.
+  static double w(double size) => size * _widthFactor;
+
+  /// Scales a vertical value relative to the device height.
+  static double h(double size) => size * _heightFactor;
+
+  /// Scales a radius/round dimension relative to the device width.
+  static double r(double size) => size * _widthFactor;
+
+  /// Scales a font size relative to the device size.
+  static double sp(double size) => size * _fontFactor;
+
+  static double textSize(double size) => sp(size);
 
  
   static void showTopSnackBar({required String message}) {
