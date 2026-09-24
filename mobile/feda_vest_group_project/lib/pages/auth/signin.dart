@@ -74,6 +74,10 @@ class _SignInScreenState extends State<SignInScreen> {
           body: Column(
             children: [
               AuthHeader(
+                showIcon: true,
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, RouteName.onboard);
+                },
                 isSigninScreen: true,
                 heading: "FedaVest",
                 subheading: "Invest in food Security",
